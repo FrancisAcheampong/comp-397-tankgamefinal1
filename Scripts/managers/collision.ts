@@ -12,7 +12,10 @@ module managers{
                     object2.isColliding = true;
                     if(object2.name.toUpperCase()=="BULLET"){
                         if(object1.name.toUpperCase()=="TANK1" || object1.name.toUpperCase()=="TANK2"){
-                            object1.setHealth(-1);
+                           // object1.setHealth(-1);
+                           object1.setHealth-=1;
+                           object1.healthStatusUpdate(-1);
+
                             objectOwnerOfObject2.setScore(100);
                         } else if( object1.name.toUpperCase()=="BARRIER"){
                             createjs.Sound.play("barrier_shot");
@@ -48,7 +51,9 @@ module managers{
                         object2.isColliding = false;
                         
                     } else if( object1.name.toUpperCase()=="POPUPLANDMINE"){
-                        object2.health -=3;
+                       // object2.health -=3;
+                       object2.setHealth-=3;
+                           object2.healthStatusUpdate(-3);
                         
                         object1.isColliding = true; // In the next update the powerup will be not visible
                         object2.isColliding = false;
